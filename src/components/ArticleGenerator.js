@@ -80,6 +80,7 @@ const ArticleGenerator = () => {
 
       eventSource.onmessage = (event) => {
         const data = JSON.parse(event.data);
+        console.log('API送信結果:', data);
         setArticles(prevArticles => {
           const updatedArticles = [...prevArticles, { title: data.title, content: data.answer }];
           localStorage.setItem('articles', JSON.stringify(updatedArticles)); // 記事をlocalStorageに保存
